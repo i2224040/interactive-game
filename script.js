@@ -6,9 +6,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let transparency = 0;
     let gameStarted = false;
 
-    // カメラのストリームを取得（内カメラ）
-    navigator.mediaDevices.getUserMedia({ 
-        video: { facingMode: 'user' }
+    // カメラのストリームを取得（内カメラ、4:3の比率）
+    navigator.mediaDevices.getUserMedia({
+        video: {
+            facingMode: 'user',
+            aspectRatio: 4 / 3
+        }
     })
     .then((stream) => {
         video.srcObject = stream;
